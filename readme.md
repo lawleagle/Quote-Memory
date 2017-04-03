@@ -5,7 +5,7 @@
 
 For the instalation, I use chocolatey package manager for windows (from admin command prompt).
 
-0. Clone this repoistory.
+0. Clone this repository.
 1. Install Python (global command): choco install python -y
 2. Install Python pip packages (global command): pip install mongoengine flask flask-login passlib
 3. Install MongoDB (global command): choco install mongodb -y
