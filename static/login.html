@@ -1,0 +1,15 @@
+<div ng-if="errorMessage">
+    <div class="alert alert-danger" role="alert" >
+	{{ errorMessage }}
+    </div>
+</div>
+
+<div ng-if="successMessage" >
+    <div class="alert alert-success" role="alert" >
+	{{ successMessage }}
+    </div>
+</div>
+
+<label>Email:</label> <input ng-model="email" /><br>
+<label>Password:</label> <input ng-model="password" type="password" /><br>
+<button ng-click="login()">Login</button>

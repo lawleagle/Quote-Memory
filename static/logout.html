@@ -1,0 +1,13 @@
+<div ng-if="errorMessage">
+    <div class="alert alert-danger" role="alert" >
+	{{ errorMessage }}
+    </div>
+</div>
+
+<div ng-if="successMessage" >
+    <div class="alert alert-success" role="alert" >
+	{{ successMessage }}
+    </div>
+</div>
+
+<button ng-click="logout()">Logout</button>
