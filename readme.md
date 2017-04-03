@@ -15,6 +15,7 @@ For the instalation, I use chocolatey package manager for windows (from admin co
 7. Start mongo shell (global command): mongo
 8. Add a user to the database (so mongoengine can access the database): db.createUser({user:"memory", pwd:"memoryadmin", roles:[{role:"readWrite",db:"quotememory"}]})
 9. Run (run command from repo folder): python run.py
+10. Access project @ http://localhost:2000
 
 
 # Ideal features list:
