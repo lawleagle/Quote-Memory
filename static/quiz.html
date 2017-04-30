@@ -1,4 +1,14 @@
 
-<div ng-controller="ReadQuoteController">
+<div>
     <p>{{ quote.text }}</p>
+
+    <input ng-model="input" />
+
+    <div ng-if="input == quote.text">
+	Congratulations! You knew the quote!
+    </div>
+
+    <div ng-if="errorMessage">
+	{{ errorMessage }}
+    </div>
 </div>

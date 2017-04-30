@@ -8,7 +8,8 @@ angular.module('quoteMemoryApp', ['ngRoute'])
     		  })
 	    .when('/quiz',
 		  {
-		      templateUrl: 'static/quiz.html'
+		      templateUrl: 'static/quiz.html',
+		      controller: 'QuizController'
 		  })
     	    .when('/addQuote',
     		  {
@@ -29,6 +30,39 @@ angular.module('quoteMemoryApp', ['ngRoute'])
     		    templateUrl: 'static/logout.html',
 		    controller: 'LogoutController'
     		})
+    })
+
+    .controller('QuizController', function($scope) {
+	$scope.quote = {}
+	$scope.quote.text = "Don't worry, be happy!"
+
+	$scope.input = ''
+	$scope.errorMessage = ''
+
+
+	let trigger = 1
+	$scope.$watch(
+	    "input",
+	    function(newValue, oldValue) {
+		if (newValue.length == 0) return;
+		trigger ^= 1; if (trigger) return;
+		
+		if ($scope.quote.text.startsWith($scope.input)) {
+		    let copy = $scope.input
+		    for (let i = $scope.input.length; i < $scope.quote.text.length; ++i) {
+			if ($scope.quote.text[i] == ' ') {
+			    $scope.input += ' '
+			    break;
+			}
+			$scope.input += $scope.quote.text[i]
+		    }
+		    $scope.errorMessage = ''
+		}
+		else {
+		    $scope.errorMessage = "Wrong! Try again! ;)"
+		}
+	    }
+	)
     })
 	    
     .controller('AddQuoteController', function($scope, $http) {

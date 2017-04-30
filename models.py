@@ -11,7 +11,7 @@ class Quote(Document):
 
 class User(Document):
     active = BooleanField(required = True, default = False)
-    email = StringField(required = True, unique = True)
+    email = StringField(required = True, unique = True) # 
     password = StringField(required = True)
 
     def __init__(self, *args, **kwargs):
