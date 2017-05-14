@@ -10,7 +10,7 @@ class Quote(Document):
     
 
 class User(Document):
-    active = BooleanField(required = True, default = False)
+    active = BooleanField(required = True, default = True)
     email = StringField(required = True, unique = True) # 
     password = StringField(required = True)
 

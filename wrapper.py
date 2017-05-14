@@ -1,10 +1,22 @@
 from header import *
 
 
-@app.route('/api/authentication_check')
-@login_required
+@app.route('/api/forgotPassword', methods=['POST'])
+def forgot_password():
+    result = {}
+    result['success'] = True
+    return result
+
+
+@app.route('/api/isAuthenticated', methods=['GET'])
 def authentication_check():
-    return 'You are authenticated.'
+    result = {}
+    if current_user.is_authenticated:
+        result['authenticated'] = True
+        result['user'] = current_user.get_id()
+        return jsonify(result)
+    result['authenticated'] = False
+    return jsonify(result)
 
 
 @app.route('/api/activate_user/<string:token_id>')
@@ -87,31 +99,50 @@ We wish you the best and fun with our application!'''.format(token.id))
     return "Success!"
 
 
-
-@app.route('/api/login', methods = ['POST'])
+@app.route('/api/login', methods = ['POST', 'GET'])
 def login():
     req = json.loads(request.data.decode() or '{}')
-    if not 'email' in req:
-        return "Invalid logging request data. No 'email' in request"
+    result = {}
+    if not 'email' in req or not 'password' in req:
+        result['authenticated'] = False
+        result['errorMessage'] = "Invalid logging request data. No 'email' in request"
+        return jsonify(result)
 
-    user = User.objects(email = req['email'])[0]
+    try:
+        user = User.objects(email = req['email'])[0]
+    except:
+        result['authenticated'] = False
+        result['errorMessage'] = 'Invalid email or password.'
+        return jsonify(result)
+        
     try:
         if not user.is_active():
-            return "User is not activate. Check your email to activate your user."
+            result['authenticated'] = False
+            result['errorMessage'] = 'User is not activate. Check your email to activate your user.'
+            return jsonify(result)
     except:
-        return "Invalid email."
+        result['authenticated'] = False
+        result['errorMessage'] = 'Invalid email or password.'
+        return jsonify(result)
         
     if not user.authenticate(req['password']):
-        return "Could not authenticate user. Invalid password"
+        result['authenticated'] = False
+        result['errorMessage'] = 'Invalid email or password.'
+        return jsonify(result)
+
     login_user(user)
-    return "Success."
+    result['authenticated'] = True
+    result['user'] = current_user.get_id()
+    return jsonify(result)
 
 
-@app.route('/api/logout', methods=['POST'])
+@app.route('/api/logout', methods=['POST', 'GET'])
 @login_required
 def logout():
     logout_user()
-    return 'Logged user out.'
+    result = {}
+    result['success'] = True
+    return jsonify(result)
 
 
 @app.route('/api/quotes')

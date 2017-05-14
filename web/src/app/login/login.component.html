@@ -1,0 +1,11 @@
+<div *ngIf="currentUser">
+  Hello, {{ currentUser }}!
+</div>
+
+<div *ngIf="!currentUser">
+  <label>Email</label><input [(ngModel)]="email"><br>
+  <label>Password</label><input [(ngModel)]="password"><br>
+  <button (click)="login()">Login</button>
+</div>
+
+<a [routerLink]="['forgotPassword']">Forgot password?</a>

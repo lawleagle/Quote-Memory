@@ -1,0 +1,9 @@
+<p *ngIf="success">
+  {{success}}
+</p>
+<p *ngIf="error">
+  {{error}}
+</p>
+
+<label>Email: </label><input [(ngModel)]="email"><br>
+<button (click)="submit()">Submit</button>

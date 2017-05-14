@@ -9,7 +9,8 @@ from pprint import pprint
 from datetime import datetime, timedelta
 
 from flask import Flask, jsonify, request, make_response
-from flask_login import login_user, login_required, logout_user, LoginManager
+from flask_login import login_user, login_required, logout_user, LoginManager, current_user
+from flask_cors import CORS, cross_origin
 
 from models import *
 from mailer import Mailer
@@ -19,6 +20,7 @@ app = Flask(__name__)
 app.secret_key = 'Love will last forever.'
 login_manager = LoginManager()
 login_manager.init_app(app)
+CORS(app)
 
 @login_manager.user_loader
 def load_user(email):
