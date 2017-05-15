@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+/* Basic Style */
+body {
+  background-color: #ECF0F1;
+}
+.page {
+  background-color: #ECF0F1;
+  padding: 100px;
+}
+
+.title {
+  padding: 15px 0;
+}
+
+.margin-top {
+  margin-top: 100px;
+}
+
+.margin-top-viewpoint {
+  margin-top: 25vh;
+}
+
+/* Button */
+button {
+  text-transform: uppercase;
+}
+
+button:hover {
+  color: #FFE36C !important;
+}
+
+
+/* Form Style */
+.text-input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+}

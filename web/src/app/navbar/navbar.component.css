@@ -1,0 +1,21 @@
+.navbar {
+  background-color: #00101f;
+  border-color: #00101f; 
+}
+
+.navbar a {
+  color: #ECF0F1;
+}
+
+.navbar a:hover,
+.navbar a:active {
+  color: #FFE36C !important;
+}
+
+.navbar a:link {
+  color: #ECF0F1;
+}
+
+.log-in {
+  margin-right: 15px;
+}

@@ -1,0 +1,22 @@
+.jumbotron {
+  background-color: #00101f;
+  color: white;
+}
+
+.jumbotron img {
+  width: 50%;
+  height: auto;
+}
+
+.jumbotron-content {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.display-text {
+  font-size: 21px;
+  font-weight: 200;
+  color: #00101f;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
