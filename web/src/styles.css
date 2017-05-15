@@ -2,10 +2,6 @@
 body {
   background-color: #ECF0F1;
 }
-.page {
-  background-color: #ECF0F1;
-  padding: 100px;
-}
 
 .title {
   padding: 15px 0;
@@ -15,21 +11,31 @@ body {
   margin-top: 100px;
 }
 
-.margin-top-viewpoint {
-  margin-top: 25vh;
-}
+
 
 /* Button */
-button {
+.btn-quote {
+  width: 100%;
   text-transform: uppercase;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 0;
 }
 
-button:hover {
+.btn-quote:hover {
   color: #FFE36C !important;
 }
 
 
 /* Form Style */
+.form-content {
+  background: #FFF;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
 .text-input {
   outline: 0;
   background: #f2f2f2;
@@ -38,4 +44,9 @@ button:hover {
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
+}
+
+.text-label {
+  padding: 15px;
+  margin: 0 0 15px;
 }

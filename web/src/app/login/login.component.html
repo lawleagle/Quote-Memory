@@ -1,4 +1,4 @@
-<div class="container margin-top-viewpoint">
+<div class="container margin-top">
 
   <div *ngIf="currentUser">
     Hello, {{ currentUser }}!
@@ -7,12 +7,12 @@
   <div *ngIf="!currentUser" class="container-fluid">
 
     <div class="row">
-      <div class="col-md-6 col-md-offset-3 login-content">
-        <h1 class="text-center title">Log In Form</h1>
+      <div class="col-md-6 col-md-offset-3 form-content">
+        <h1 class="text-center title">Log In</h1>
 
         <form class="form-horizontal">
           <div class="form-group">
-            <label class="col-sm-2 control-label">Email:</label>
+            <label class="col-sm-2 text-label">Email:</label>
 
             <div class="col-sm-10">
               <input [(ngModel)]="email" class="text-input" name="email" placeholder="Type your email here!" required/>
@@ -20,7 +20,7 @@
           </div>
 
           <div class="form-group">
-            <label class="col-sm-2 control-label">Password:</label>
+            <label class="col-sm-2 text-label">Password:</label>
 
             <div class="col-sm-10">
               <input [(ngModel)]="password" class="text-input" name="password" placeholder="Type your password here!" required/>
@@ -29,7 +29,7 @@
 
           <div class="form-group">
             <div class="col-sm-12">
-              <button (click)="login()" class="btn btn-primary btn-log-in">Login</button>
+              <button (click)="login()" class="btn btn-primary btn-quote">Login</button>
             </div>
 
             <div class="col-sm-12 text-center">
