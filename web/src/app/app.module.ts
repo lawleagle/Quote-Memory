@@ -12,6 +12,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { appRoutes } from './routes';
 import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from './authentication.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthenticationService } from './authentication.service';
     SignupComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

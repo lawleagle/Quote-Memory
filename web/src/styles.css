@@ -1,6 +1,12 @@
 /* Basic Style */
 body {
   background-color: #ECF0F1;
+  min-height: 85vh;
+  position: relative;
+}
+
+.page {
+  min-height: 75vh;
 }
 
 .title {
@@ -10,6 +16,7 @@ body {
 .margin-top {
   margin-top: 100px;
 }
+
 
 
 

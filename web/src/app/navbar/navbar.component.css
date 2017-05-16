@@ -1,10 +1,10 @@
 .navbar {
   background-color: #00101f;
-  border-color: #00101f; 
+  border-color: #00101f;
 }
 
 .navbar a {
-  color: #ECF0F1;
+  color: #ECF0F1 !important;
 }
 
 .navbar a:hover,
