@@ -27,15 +27,24 @@ a:link {
 /* Button */
 .btn-quote {
   width: 100%;
+
+  background-color: #FFF;
+
+  font-size: 14px;
   text-transform: uppercase;
   padding: 15px;
   margin-bottom: 20px;
-  border: none;
-  border-radius: 0;
+
+  border: 3px solid #005aa8;
+
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .btn-quote:hover {
   color: #FFE36C !important;
+  background-color:  #005aa8;
 }
 
 
