@@ -1,18 +1,25 @@
-<footer class="container-fluid text-center footer">
+<footer class="container-fluid">
   <div class="row">
 
-    <div class="col-md-4">
-      <img src="assets/img/home_logo.png">
+    <div class="col-md-8 text-left">
+      <div class="footer-content">
+        <img class="title" src="assets/img/home_logo.png">
+        <p>Did you ever try to learn something by heart? By using our application, learning things by heart will become both easy and fun.<p>
+      </div>
     </div>
 
-    <div class="col-md-8">
-
+    <div class="col-md-4 text-center">
+      <ul class="list-unstyled footer-content">
+        <li><a [routerLink]="['']">Home</a></li>
+        <li><a [routerLink]="['login']">Login</a></li>
+        <li><a [routerLink]="['signup']">Signup</a></li>
+      </ul>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row text-center">
     <div class="col-md-12">
       <p>Copyright (c) 2017 Copyright Holder All Rights Reserved.<p>
     </div>
   </div>
-<footer>
+</footer>

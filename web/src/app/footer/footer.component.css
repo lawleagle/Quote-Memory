@@ -1,4 +1,4 @@
-.footer {
+footer {
   min-height: 15vh;
   width: 100%;
 
@@ -8,14 +8,29 @@
   bottom: 0;
 }
 
-.footer img {
-  width: 50%;
-  height: auto;
-  margin-top: 7vh;
-  margin-bottom: 7vh;
+.footer-content {
+  margin: 7vh 10%;
 }
 
-.footer p {
+footer img {
+  width: 40%;
+  height: auto;
+}
+
+footer p {
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+footer a {
+  color: #ECF0F1 !important;
+}
+
+footer a:hover,
+footer a:active {
+  color: #FFE36C !important;
+}
+
+footer a:link {
+  color: #ECF0F1;
 }
