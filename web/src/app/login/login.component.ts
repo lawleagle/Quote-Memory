@@ -8,6 +8,7 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  error = '';
   isAuthenticated = false;
   currentUser = '';
   email = '';
@@ -32,6 +33,9 @@ export class LoginComponent implements OnInit {
       if (response.authenticated) {
         this.currentUser = response.user;
         window.location.href='';
+      }
+      else {
+        this.error = response.errorMessage;
       }
     });
   }

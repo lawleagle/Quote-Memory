@@ -1,7 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "quote-memory"
+    "name": "quote-memory",
+    "ejected": true
   },
   "apps": [
     {
@@ -52,6 +53,7 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {
+    }
   }
 }

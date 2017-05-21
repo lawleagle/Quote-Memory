@@ -7,6 +7,7 @@ logger = logging.getLogger('QuoteMemory')
 import json
 from pprint import pprint
 from datetime import datetime, timedelta
+import random
 
 from flask import Flask, jsonify, request, make_response
 from flask_login import login_user, login_required, logout_user, LoginManager, current_user

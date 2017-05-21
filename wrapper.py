@@ -1,4 +1,11 @@
 from header import *
+from routes import Routes
+
+
+@app.route('/ping')
+@app.route('/api/ping')
+def ping():
+    return 'pong'
 
 
 @app.route('/api/forgotPassword', methods=['POST'])
@@ -19,35 +26,48 @@ def authentication_check():
     return jsonify(result)
 
 
-@app.route('/api/activate_user/<string:token_id>')
+@app.route(Routes.ACTIVATE_USER.format('<string:token_id>'))
 def activate_user(token_id):
-    try:
-        token = UserActivationToken.objects.with_id(token_id)
-    except:
-        return "The required activation token does not exist."
+    response = {}
+    token = UserActivationToken.objects.with_id(token_id)
+    if not token:
+        response['success'] = False
+        response['errorMessage'] = 'Link is invalid.'
+        return jsonify(response)
+
+    if (token.user.active):
+        token.delete()
+        response['sucess'] = False
+        response['errorMessage'] = 'User is already active!'
+        return jsonify(response)
 
     if (token.expiration_date < datetime.now()):
-        try:
-            token.user.delete()
-        except:
-            pass
         token.delete()
-        return "The activation link is no longer valid. Try to register again!"
+        response['success'] = False
+        response['errorMessage'] = 'The activation link expired.'
+        return jsonify(response)
 
     token.user.active = True
     token.user.save()
-    return "Your account is successfully activated!"
+    token.delete()
+
+    response['success'] = True
+    response['message'] = 'Your account is successfully activated!'
+    return jsonify(response)
 
 
 
 @app.route('/api/signup', methods = ['POST'])
 def signup():
     req = json.loads(request.data.decode() or '{}')
+    response = {}
 
     try:
         user = User.objects(email = req['email'])[0]
-        return "Email is taken!"
-        return make_response("Email is taken!", 401)
+        response['success'] = False
+        response['errorMessage'] = 'That email is taken!'
+        return jsonify(response)
+
     except:
         pass
 
@@ -62,14 +82,15 @@ def signup():
 
     token.save()
 
-    Mailer.send_mail('lawleagle@gmail.com',
+    Mailer.send_mail(user.email,
                      'Quote Memory: Registration complete!',
 '''Hello from Quote Memory!
 Hope you are fine!
-Follow this link to activate your account: http://quote-memory.tk/api/activate_user/{}
-We wish you the best and fun with our application!'''.format(token.id))
-    
-    return "Success!"
+Follow this link to activate your account: http://quote-memory.tk/{}
+We wish you the best and fun with our application!'''.format(Routes.ACTIVATE_USER.format(token.id)))
+
+    response['success'] = True
+    return jsonify(response)
 
 
 @app.route('/api/resend_activation', methods = ['POST'])
@@ -93,8 +114,8 @@ def resend_activation():
                      'Quote Memory: Registration complete!',
 '''Hello from Quote Memory!
 Hope you are fine!
-Follow this link to activate your account: http://quote-memory.tk/api/activate_user/{}
-We wish you the best and fun with our application!'''.format(token.id))
+Follow this link to activate your account: http://quote-memory.tk/{}
+We wish you the best and fun with our application!'''.format(Routes.ACTIVATE_USER.format(token.id)))
     
     return "Success!"
 
@@ -146,39 +167,69 @@ def logout():
 
 
 @app.route('/api/quotes')
+@login_required
 def get_quotes():
-    return Quote.objects().to_json()
+    user = User.objects(email = current_user.get_id())[0]
+    return Quote.objects(user = user).to_json()
 
 
 @app.route('/api/quote')
+@login_required
 def get_quote():
-    return Quote.objects[0].to_json()
+    quote = Quote()
+    quote.identifier = 'ManuQuote Title'
+    quote.text = 'ManuQuote Text'
+    return quote.to_json()
 
 
 @app.route('/api/quote', methods = ['POST'])
+@login_required
 def post_quote():
     req = json.loads(request.data.decode() or '{}')
+    response = {}
 
-    quote = Quote()
-    quote.translation = req['translation']
-    quote.book = req['book']
-    quote.chapter = req['chapter']
-    quote.first_verse = req['first_verse']
-    quote.last_verse = req['last_verse']
-    quote.text = req['text']
-    quote.save()
-    
-    return 'MANU'
+    identifier = req['identifier']
+    text = req['text']
+
+    if not identifier or identifier == '':
+        response['success'] = False
+        response['errorMessage'] = 'Identifier cannot be empty!'
+        return jsonify(response)
+    if not text or text == '':
+        response['success'] = False
+        response['errorMessage'] = 'Text cannot be empty!'
+        return jsonify(response)
+
+    try:
+        quote = Quote()
+        quote.identifier = identifier
+        quote.text = text
+        quote.user = User.objects(email = current_user.get_id())[0]
+        quote.save()
+    except:
+        response['success'] = False
+        response['errorMessage'] = 'You already used that identifier. Try another!'
+        return jsonify(response)
+
+    response['success'] = True;
+    return jsonify(response)
+
+@app.route('/api/quote/<string:identifier>', methods = ['DELETE'])
+@login_required
+def delete_quote(identifier):
+    user = User.objects(email = current_user.get_id())[0]
+    quote = Quote.objects(user = user, identifier = identifier)[0]
+    quote.delete()
+
+    response = {}
+    response['success'] = True;
+    return jsonify(response)
 
 
-@app.route('/static/<string:path>')
-def get_static(path):
-    with open('static/' + path, 'r') as file:
-        s = file.read()
-        return s
-    
-
-@app.route('/')
-def get_index():
-    with open('static/index.html', 'r') as file:
-        return file.read()
+@app.route('/api/randomQuote')
+@login_required
+def random_quote():
+    user = User.objects(email = current_user.get_id())[0]
+    quotes = Quote.objects(user = user)
+    quote = random.choice(quotes)
+    return quote.to_json()

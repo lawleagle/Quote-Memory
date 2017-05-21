@@ -5,7 +5,6 @@
   </div>
 
   <div *ngIf="!currentUser">
-
     <div class="row">
       <div class="col-md-6 col-md-offset-3 form-content">
         <h1 class="text-center title">Log In</h1>
@@ -23,7 +22,7 @@
             <label class="col-sm-2 text-label">Password:</label>
 
             <div class="col-sm-10">
-              <input [(ngModel)]="password" class="text-input" name="password" placeholder="Type your password here!" required/>
+              <input [(ngModel)]="password" class="text-input" name="password" type="password" placeholder="Type your password here!" required/>
             </div>
           </div>
 

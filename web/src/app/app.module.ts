@@ -13,6 +13,10 @@ import { appRoutes } from './routes';
 import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from './authentication.service';
 import { FooterComponent } from './footer/footer.component';
+import { QuotesListComponent } from './quotes-list/quotes-list.component';
+import { AddQuoteComponent } from './add-quote/add-quote.component';
+import { QuoteService } from './quote.service';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     ForgotPasswordComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    QuotesListComponent,
+    AddQuoteComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,10 @@ import { FooterComponent } from './footer/footer.component';
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthenticationService],
+  providers: [
+    AuthenticationService,
+    QuoteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

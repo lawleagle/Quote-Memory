@@ -11,21 +11,33 @@ export class SignupComponent implements OnInit {
   success = null;
   error = null;
   email = '';
+  password = '';
+  passwordRepeat = '';
   constructor(private authenticationService : AuthenticationService) { }
 
   ngOnInit() {
   }
 
   submit() {
-    this.authenticationService.forgotPassword(this.email).subscribe(response => {
+    if (this.password === '') {
+      this.error = "Password field cannot be empty!";
+      return;
+    }
+    if (this.password !== this.passwordRepeat) {
+      this.error = "Passwords do not match!";
+      return;
+    }
+    this.success = null;
+    this.error = null;
+    this.authenticationService.signup(this.email, this.password).subscribe(response => {
       console.log(response);
       if (response.success) {
-        this.success = "Password reset token is on it's way to your email.";
+        this.success = "Sign up successfull! Check your email to activate your account.";
         this.error = null;
       }
       else {
         this.success = null;
-        this.error = "Invalid email";
+        this.error = response.errorMessage;
       }
     })
   }

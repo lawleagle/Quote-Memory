@@ -1,0 +1,9 @@
+<br><br>
+<h1>Quotes List Works</h1>
+
+<div *ngFor="let quote of quotes">
+  <label>Identifier: {{quote.identifier}}</label><br>
+  <label>Text: {{quote.text}}</label><br>
+  <button (click)="remove(quote)">Remove</button><br><br>
+</div>
+
