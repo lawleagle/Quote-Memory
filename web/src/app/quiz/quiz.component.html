@@ -1,19 +1,23 @@
-<br><br>
-<h1>Quiz Works</h1>
+<div class="container padding-top page content">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title">Quiz Works</h1>
 
+      <div *ngIf="error">
+        {{error}}
+      </div>
 
-<div *ngIf="error">
-  {{error}}
-</div>
+      {{quote.identifier}}
 
-{{quote.identifier}}
+      <div *ngIf="success">
+        {{success}}
+      </div>
 
-<div *ngIf="success">
-  {{success}}
-</div>
-
-<div *ngIf="!success">
-  <input [(ngModel)]="input"><br>
-  <button (click)="check()">Check Answer</button><br>
-  <button (click)="show()">Show Answer</button>
+      <div *ngIf="!success">
+        <input [(ngModel)]="input" class="text-input"><br>
+        <button (click)="check()" class="btn-quote">Check Answer</button><br>
+        <button (click)="show()" class="btn-quote">Show Answer</button>
+      </div>
+    </div>
+  </div>
 </div>

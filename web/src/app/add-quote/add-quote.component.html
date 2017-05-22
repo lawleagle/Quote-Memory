@@ -1,23 +1,42 @@
-<br><br>
-<h1>Add Quote Works</h1>
+<div class="container margin-top page">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 form-content">
 
+        <h1 class="title">Add Quote</h1>
 
-<div *ngIf="success">
-  {{success}}
+        <div *ngIf="success">
+          {{success}}
+        </div>
+        <div *ngIf="error">
+          {{error}}
+        </div>
+
+        <!-- Form -->
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 text-label">Identifer:*</label>
+
+            <div class="col-sm-10">
+              <input [(ngModel)]="identifier" class="text-input" name="identifier" placeholder="Type your email here!" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 text-label">Text:*</label>
+
+            <div class="col-sm-10">
+              <input [(ngModel)]="text" class="text-input" name="text" placeholder="Type your quote!" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12 text-right">
+              <button (click)="submit()" class="btn-quote">Add Quote</button>
+            </div>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
 </div>
-<div *ngIf="error">
-  {{error}}
-</div>
-
-<label>Identifer: </label>
-<input [(ngModel)]="identifier">
-<br>
-
-<label>Text: </label>
-<input [(ngModel)]="text">
-<br>
-
-<button (click)="submit()">Add Quote</button>
-<br>
-
-
