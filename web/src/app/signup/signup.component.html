@@ -1,18 +1,20 @@
 <div class="container margin-top page">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 form-content">
+    <div class="col-md-8 col-md-offset-2 form-content">
 
       <h1 class="text-center title">Sign Up for Free</h1>
 
       <!-- Massege -->
-      <div class="message">
-        <p *ngIf="success">
-          {{success}}
-        </p>
-        <p *ngIf="error">
-          {{error}}
-        </p>
+      <div>
+        <div *ngIf="success" class="message success text-center">
+          <p> {{ success }}</p>
+        </div>
+
+        <div *ngIf="error" class="message error text-center">
+          <p>{{ error }}</p>
+        </div>
       </div>
+
 
       <!-- Form -->
       <form class="form-horizontal">
@@ -22,10 +24,25 @@
 
           <div class="col-sm-10">
             <input [(ngModel)]="email" class="text-input" name="email" placeholder="Type your email here!" required/><br>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 text-label">Password: </label>
+
+          <div class="col-sm-10">
             <input [(ngModel)]="password" class="text-input" name="password" type="password" placeholder="Type your password here!" required/><br>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 text-label">Repeat Password: </label>
+
+          <div class="col-sm-10">
             <input [(ngModel)]="passwordRepeat" class="text-input" name="passwordRepeat" type="password" placeholder="Type your password again here!" required/><br>
           </div>
         </div>
+
 
         <div class="form-group">
           <div class="col-sm-12 text-right">

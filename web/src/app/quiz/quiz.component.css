@@ -1,0 +1,29 @@
+/* -------------------------------- Home Buttons -------------------------------- */
+.btn-quiz {
+  display: inline-block;
+  background-color: #00101f;
+
+  width: 100%;
+
+  background-color: #FFF;
+
+  padding: 15px 30%;
+  margin-bottom: 30px;
+  border-color: #005aa8;
+}
+
+.btn-quiz:hover {
+  color: #FFE36C !important;
+  background-color:  #005aa8;
+}
+
+/* Medium devices 992px and up */
+@media (min-width: 992px)  {
+  .btn-wraper:nth-child(2) .btn-home {
+    margin-right: 20%;
+  }
+
+  .btn-wraper:nth-child(1) .btn-home {
+    margin-left: 20%;
+  }
+}

@@ -2,13 +2,17 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3 form-content">
 
-        <h1 class="title">Add Quote</h1>
+        <h1 class="title text-center">Add Quote</h1>
 
-        <div *ngIf="success">
-          {{success}}
-        </div>
-        <div *ngIf="error">
-          {{error}}
+        <!-- Massege -->
+        <div>
+          <div *ngIf="success" class="message success text-center">
+            <p> {{ success }}</p>
+          </div>
+
+          <div *ngIf="error" class="message error text-center">
+            <p>{{ error }}</p>
+          </div>
         </div>
 
         <!-- Form -->
