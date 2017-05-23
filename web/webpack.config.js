@@ -431,7 +431,8 @@ module.exports = {
   "devServer": {
     "historyApiFallback": true,
 	"proxy": {
-		"/api/**": "http://localhost:2000"
+		"/api/**": "http://localhost:2000",
+		"/static/**": "http://localhost:2000"
 	}
   }
 };
