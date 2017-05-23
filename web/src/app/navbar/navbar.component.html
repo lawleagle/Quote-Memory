@@ -11,7 +11,7 @@
     </div>
     <div class="collapse navbar-collapse" id="my-navbar">
       <ul class="nav navbar-nav navbar-right">
-        <li ><a [routerLink]="['']">Home</a></li>
+        <li *ngIf="!currentUser"><a [routerLink]="['']">Home</a></li>
         <li *ngIf="currentUser"><a [routerLink]="['quiz']">Quiz</a></li>
         <li *ngIf="currentUser"><a [routerLink]="['add-quote']">Add Quote</a></li>
         <li *ngIf="currentUser"><a [routerLink]="['quotes-list']">Quotes List</a></li>
