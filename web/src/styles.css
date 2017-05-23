@@ -1,4 +1,4 @@
-/* Basic Style */
+/*-------------------------------- Basic --------------------------------*/
 body {
   background-color: #ECF0F1;
   min-height: 60vh;
@@ -28,25 +28,35 @@ a:link {
 }
 
 
-/* Button */
-.btn-quote {
+/*-------------------------------- Button --------------------------------*/
+.btn-main {
+  font-size: 14px;
+  text-transform: uppercase;
+
+  border: 3px solid;
+
+  cursor: pointer;
+
+  -webkit-transition-duration: 0.4s;  /* Safari, Chrome */
+  -moz-transition-duration: 0.4s;     /* Firefox */
+  -o-transition-duration: 0.4s;       /* Opera */
+  transition-duration: 0.4s;
+}
+
+
+
+
+.btn-form {
   width: 100%;
 
   background-color: #FFF;
 
-  font-size: 14px;
-  text-transform: uppercase;
   padding: 15px;
   margin-bottom: 20px;
-
-  border: 3px solid #005aa8;
-
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
+  border-color: #005aa8;
 }
 
-.btn-quote:hover {
+.btn-form:hover {
   color: #FFE36C !important;
   background-color:  #005aa8;
 }
