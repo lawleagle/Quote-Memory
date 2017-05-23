@@ -1,4 +1,4 @@
-/* Basic Style */
+/* -------------------------------- Basic -------------------------------- */
 body {
   background-color: #ECF0F1;
   min-height: 60vh;
@@ -6,7 +6,7 @@ body {
 }
 
 .page {
-  min-height: 60vh;
+  min-height: 65vh;
 }
 
 .title {
@@ -17,6 +17,14 @@ body {
   margin-top: 100px;
 }
 
+.padding-top {
+  padding-top: 100px;
+}
+
+a {
+  cursor: pointer;
+}
+
 a:hover,
 a:active,
 a:link {
@@ -24,35 +32,55 @@ a:link {
 }
 
 
-/* Button */
-.btn-quote {
-  width: 100%;
-
-  background-color: #FFF;
-
+/* -------------------------------- Button -------------------------------- */
+.btn-main {
   font-size: 14px;
   text-transform: uppercase;
+
   padding: 15px;
-  margin-bottom: 20px;
+  border: 3px solid;
 
-  border: 3px solid #005aa8;
-
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
   cursor: pointer;
+
+  -webkit-transition-duration: 0.4s;  /* Safari, Chrome */
+  -moz-transition-duration: 0.4s;     /* Firefox */
+  -o-transition-duration: 0.4s;       /* Opera */
+  transition-duration: 0.4s;
 }
 
-.btn-quote:hover {
+/* -------------------------------- Form Button -------------------------------- */
+.btn-form {
+  width: 100%;
+  background-color: #FFF;
+
+  border-color: #005aa8;
+}
+
+.btn-form:hover {
   color: #FFE36C !important;
   background-color:  #005aa8;
 }
 
 
+/* -------------------------------- Message -------------------------------- */
+.message {
+  font-size: 16px;
+  margin: 30px 0;
+}
+
+.success {
+  color: #005aa8;
+}
+
+.error {
+  color: #F2390B;
+}
+
 /* Form Style */
 .form-content {
   background: #FFF;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 20px 30px;
+  margin-bottom: 50px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -69,4 +97,12 @@ a:link {
 .text-label {
   padding: 15px;
   margin: 0 0 15px;
+}
+
+/* -------------------------------- Content -------------------------------- */
+.content {
+  background: #FFF;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

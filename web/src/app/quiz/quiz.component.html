@@ -1,19 +1,34 @@
-<br><br>
-<h1>Quiz Works</h1>
+<div class="container padding-top page content">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title text-center">Quiz</h1>
 
+      <h2>{{quote.identifier}}</h2>
 
-<div *ngIf="error">
-  {{error}}
-</div>
+      <!-- Massege -->
+      <div>
+        <div *ngIf="success" class="message success text-center">
+          <p> {{ success }}</p>
+        </div>
 
-{{quote.identifier}}
+        <div *ngIf="error" class="message error text-center">
+          <p>{{ error }}</p>
+        </div>
+      </div>
 
-<div *ngIf="success">
-  {{success}}
-</div>
+      <div *ngIf="!success">
+        <input [(ngModel)]="input" class="text-input"><br>
+      </div>
+    </div>
+  </div>
 
-<div *ngIf="!success">
-  <input [(ngModel)]="input"><br>
-  <button (click)="check()">Check Answer</button><br>
-  <button (click)="show()">Show Answer</button>
+  <div class="row text-center">
+    <div class="col-md-6 btn-wraper">
+      <button (click)="check()" class="btn-main btn-quiz">Check Answer</button><br>
+    </div>
+
+    <div class="col-md-6 btn-wraper">
+      <button (click)="show()" class="btn-main btn-quiz">Show Answer</button>
+    </div>
+  </div>
 </div>

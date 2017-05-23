@@ -4,7 +4,7 @@
     <div class="jumbotron-content">
       <div class="container">
 
-        <img src="assets/img/home_logo.png">
+        <img src='./assets/img/logo.png' />
 
         <p class="margin-top">Did you ever try to learn something by heart? Did you find it difficult? Were you in a
         situation where you had to learn something by heart, or did you just want to memorize that
@@ -12,9 +12,15 @@
         <strong>“Quote Memory”</strong>. By using our application, learning things by heart will become
         both easy and fun.</p>
 
-        <div class="margin-top">
-          <a [routerLink]="['login']" class="btn-quote btn-home">Log In</a>
-          <a [routerLink]="['signup']" class="btn-quote btn-home">Sign In</a>
+        <div class="row margin-top home-btn-container">
+          <div class="col-md-6 btn-wraper">
+            <a [routerLink]="['login']" class="btn-main btn-home">Log In</a>
+          </div>
+
+          <div class="col-md-6 btn-wraper">
+            <a [routerLink]="['signup']" class="btn-main btn-home">Sign In</a>
+          </div>
+
         </div>
       </div>
     </div>
