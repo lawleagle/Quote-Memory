@@ -1,16 +1,28 @@
 <div class="container padding-top page content">
   <div class="row">
     <div class="col-md-12">
-
-      <h1 class="title">Quotes List Works</h1>
-
-      <div *ngFor="let quote of quotes">
-        <label>Identifier: {{quote.identifier}}</label><br>
-        <label>Text: {{quote.text}}</label><br>
-        <button (click)="remove(quote)">Remove</button><br><br>
-      </div>
-
-
+      <h1 class="title">Quotes List</h1>
+      <div class="line"></div>
     </div>
   </div>
+
+  <div class="quote-list" *ngFor="let quote of quotes">
+    <div class="row">
+      <div class="col-md-8">
+        <p><strong>Identifier</strong>: {{quote.identifier}}</p>
+        <p><strong>Text</strong>: {{quote.text}}</p>
+      </div>
+
+      <div class="col-md-4">
+        <button (click)="remove(quote)" class="btn-main btn-form">Remove</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+
 </div>
