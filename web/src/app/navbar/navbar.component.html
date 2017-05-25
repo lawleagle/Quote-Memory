@@ -14,7 +14,7 @@
         <li *ngIf="!currentUser"><a [routerLink]="['']">Home</a></li>
         <li *ngIf="currentUser"><a [routerLink]="['quiz']">Quiz</a></li>
         <li *ngIf="currentUser"><a [routerLink]="['add-quote']">Add Quote</a></li>
-        <li *ngIf="!currentUser"><a [routerLink]="['quotes-list']">Quotes List</a></li>
+        <li *ngIf="currentUser"><a [routerLink]="['quotes-list']">Quotes List</a></li>
         <li *ngIf="!currentUser"><a [routerLink]="['login']">Login</a></li>
         <li *ngIf="!currentUser"><a [routerLink]="['signup']">Signup</a></li>
         <li *ngIf="currentUser"><a (click)="logout()">Logout</a></li>
