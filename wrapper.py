@@ -136,15 +136,15 @@ def login():
         result['errorMessage'] = 'Invalid email or password.'
         return jsonify(result)
         
-    try:
-        if not user.is_active():
-            result['authenticated'] = False
-            result['errorMessage'] = 'User is not activate. Check your email to activate your user.'
-            return jsonify(result)
-    except:
-        result['authenticated'] = False
-        result['errorMessage'] = 'Invalid email or password.'
-        return jsonify(result)
+    # try:
+    #     if not user.is_active():
+    #         result['authenticated'] = False
+    #         result['errorMessage'] = 'User is not activate. Check your email to activate your user.'
+    #         return jsonify(result)
+    # except:
+    #     result['authenticated'] = False
+    #     result['errorMessage'] = 'Invalid email or password.'
+    #    return jsonify(result)
         
     if not user.authenticate(req['password']):
         result['authenticated'] = False
