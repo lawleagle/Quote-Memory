@@ -13,9 +13,17 @@ footer {
 }
 
 footer img {
-  width: 40%;
+  width: 80%;
   height: auto;
 }
+
+@media (min-width: 992px)  {
+  footer img {
+    width: 40%;
+    height: auto;
+  }
+}
+
 
 footer p {
   font-size: 16px;

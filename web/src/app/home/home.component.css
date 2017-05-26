@@ -5,8 +5,16 @@
 }
 
 .jumbotron img {
-  width: 50%;
+  width: 75%;
   height: auto;
+}
+
+/* Medium devices 992px and up */
+@media (min-width: 992px)  {
+  .jumbotron img {
+    width: 50%;
+    height: auto;
+  }
 }
 
 .jumbotron-content {
