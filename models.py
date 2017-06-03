@@ -47,6 +47,7 @@ class Quote(Document):
     user = ReferenceField(User, required = True)
     identifier = StringField(requored = True, unique_with = 'user')
     text = StringField(required = True)
+    level = IntField(default = 0, required = True)
 
     
 class QuizToken(Document):

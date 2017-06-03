@@ -23,7 +23,14 @@ export class QuoteService {
     return this.http.delete(this.endpointUrl + 'quote/' + identifier).map(response => response.json());
   }
 
-  random() {
-    return this.http.get(this.endpointUrl + 'randomQuote').map(response => response.json());
+  startQuiz() {
+    return this.http.get(this.endpointUrl + 'startQuiz').map(response => response.json());
+  }
+
+  finishQuiz(token, text) {
+    return this.http.post(this.endpointUrl + 'finishQuiz', {
+      token: token,
+      text: text
+    }).map(response => response.json());
   }
 }

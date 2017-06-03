@@ -17,6 +17,8 @@ import { QuotesListComponent } from './quotes-list/quotes-list.component';
 import { AddQuoteComponent } from './add-quote/add-quote.component';
 import { QuoteService } from './quote.service';
 import { QuizComponent } from './quiz/quiz.component';
+import { StatisticsService } from './statistics.service';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { QuizComponent } from './quiz/quiz.component';
     FooterComponent,
     QuotesListComponent,
     AddQuoteComponent,
-    QuizComponent
+    QuizComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { QuizComponent } from './quiz/quiz.component';
   ],
   providers: [
     AuthenticationService,
-    QuoteService
+    QuoteService,
+    StatisticsService
   ],
   bootstrap: [AppComponent]
 })

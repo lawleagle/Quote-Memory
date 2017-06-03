@@ -226,10 +226,61 @@ def delete_quote(identifier):
     return jsonify(response)
 
 
-@app.route('/api/randomQuote')
+@app.route('/api/startQuiz')
 @login_required
-def random_quote():
+def startQuiz():
     user = User.objects(email = current_user.get_id())[0]
+    quote = random.choice(Quote.objects(user = user))
+
+    token = QuizToken()
+    token.quote = quote
+    token.save()
+
+    response = {}
+    response['success'] = True
+    response['token'] = token.id.__str__()
+    response['quote'] = json.loads(quote.to_json())
+    return jsonify(response)
+
+
+@app.route('/api/finishQuiz', methods = ['POST'])
+@login_required
+def finishQuiz():
+    req = json.loads(request.data.decode() or '{}')
+    token_id = req['token']
+    text = req['text']
+
+    response = {}
+    user = User.objects(email = current_user.get_id())[0]
+
+    token = QuizToken.objects.with_id(token_id)
+    if not token:
+        response['success'] = False
+        response['errorMessage'] = 'You already solved this quiz!'
+        return jsonify(response)
+    
+    quote = token.quote
+    if quote.user != user:
+        response['success'] = False
+        response['errorMessage'] = 'Bad request.'
+        return jsonify(response)
+
+    if quote.text != text:
+        response['success'] = False
+        response['errorMessage'] = 'Wrong text.'
+        return jsonify(response)
+    
+    quote.level += 1
+    quote.save()
+    token.delete()
+
+    response['success'] = True
+    return jsonify(response)
+        
+@app.route('/api/statistics')
+@login_required
+def statistics():
+    user = User.objects(email = current_user.get_id())[0]
+
     quotes = Quote.objects(user = user)
-    quote = random.choice(quotes)
-    return quote.to_json()
+    return quotes.to_json()
