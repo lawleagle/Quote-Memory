@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  currentUser = null;
 
-  constructor() { }
+  constructor(private authenticationService : AuthenticationService) {}
 
   ngOnInit() {
+    this.authenticationService.isAuthenticated().subscribe(response => {
+      console.log(response);
+      if (response.authenticated) {
+        this.currentUser = response.user;
+      }
+    });
+  }
+
+  logout() {
+    this.authenticationService.logout().subscribe(response => {
+      window.location.href='';
+    });
   }
 
 }

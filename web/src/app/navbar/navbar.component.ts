@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -9,9 +8,8 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class NavbarComponent implements OnInit {
   currentUser = null;
-  constructor(private authenticationService : AuthenticationService) { 
-
-  }
+  
+  constructor(private authenticationService : AuthenticationService) {}
 
   ngOnInit() {
     this.authenticationService.isAuthenticated().subscribe(response => {

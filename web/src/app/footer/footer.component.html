@@ -11,8 +11,11 @@
     <div class="col-md-4 text-center">
       <ul class="list-unstyled footer-content">
         <li><a [routerLink]="['']">Home</a></li>
-        <li><a [routerLink]="['login']">Login</a></li>
-        <li><a [routerLink]="['signup']">Signup</a></li>
+        <li *ngIf="!currentUser"><a [routerLink]="['login']">Login</a></li>
+        <li *ngIf="!currentUser"><a [routerLink]="['signup']">Signup</a></li>
+        <li *ngIf="currentUser"><a [routerLink]="['statistics']">Statisitcs</a></li>
+        <li *ngIf="currentUser"><a [routerLink]="['quiz']">Quiz</a></li>
+        <li *ngIf="currentUser"><a (click)="logout()">Logout</a></li>
       </ul>
     </div>
   </div>
