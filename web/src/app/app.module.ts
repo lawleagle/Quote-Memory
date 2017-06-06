@@ -4,21 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { appRoutes } from './routes';
 import { HomeComponent } from './home/home.component';
-import { AuthenticationService } from './authentication.service';
-import { FooterComponent } from './footer/footer.component';
-import { QuotesListComponent } from './quotes-list/quotes-list.component';
 import { AddQuoteComponent } from './add-quote/add-quote.component';
-import { QuoteService } from './quote.service';
+import { QuotesListComponent } from './quotes-list/quotes-list.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { StatisticsService } from './statistics.service';
 import { StatisticsComponent } from './statistics/statistics.component';
+
+import { AuthenticationService } from './services/authentication.service';
+import { QuoteService } from './services/quote.service';
+import { StatisticsService } from './services/statistics.service';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     QuotesListComponent,
     AddQuoteComponent,
     QuizComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -47,4 +50,4 @@ import { StatisticsComponent } from './statistics/statistics.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
