@@ -1,4 +1,4 @@
-<div class="page">
+<div *ngIf="!currentUser" class="page">
   <div class="jumbotron text-center">
 
     <div class="jumbotron-content">
@@ -7,7 +7,7 @@
         <img src="./static/home_logo.png" />
 
         <p class="margin-top">Did you ever try to learn something by heart? Did you find it difficult? Were you in a
-        situation where you had to learn something by heart, or did you just want to memorize that
+        situation where you had to learn something, or did you just want to memorize that
         cool quote you heard from Einstein? If so, then we have good news for you! We have the solution:
         <strong>“Quote Memory”</strong>. By using our application, learning things by heart will become
         both easy and fun.</p>
@@ -26,14 +26,74 @@
     </div>
   </div>
 
-  <div class="container text-center">
-      <div class="row">
+  <div class="panel-box bg-blue">
+    <div class="container text-center">
 
-        <p class="display-text">You can add your own quotes to learn or you can try learning quotes added by other users.
-        We have a <i>“daily quote”</i>, you can categorize your quotes, and of course, you can do quizzes to see
-        if you learnt something or not. Not enough to get you started? Find a friend and learn quotes together!
-        Join our community!</p>
+      <div class="row panel-content">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-education logo logo-yellow"></span>
+        </div>
+
+        <div class="col-sm-8">
+          <h2 class="title">Learn Efficiently</h2>
+
+          <p class="display-text">You can add your own quotes to learn or you can try learning quotes added by other users.
+          We have a <i>“daily quote”</i>, you can categorize your quotes, and of course, you can do quizzes to see
+          if you learnt something or not. Not enough to get you started? Find a friend and learn quotes together!
+          Join our community!</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-box bg-gray">
+    <div class="container text-center">
+
+      <div class="row panel-content">
+        <div class="col-sm-8">
+          <h2 class="title">Learn Efficiently</h2>
+
+          <p class="display-text">You can add your own quotes to learn or you can try learning quotes added by other users.
+          We have a <i>“daily quote”</i>, you can categorize your quotes, and of course, you can do quizzes to see
+          if you learnt something or not. Not enough to get you started? Find a friend and learn quotes together!
+          Join our community!</p>
+
+        </div>
+
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-signal logo logo-dark"></span>
+        </div>
 
       </div>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="currentUser" class="page">
+  <div class="jumbotron text-center">
+
+    <div class="jumbotron-content">
+      <div class="container">
+
+        <h1 class="title">Welcome to</h1>
+
+        <img src="./static/home_logo.png" />
+
+        <h1>{{currentUser}}</h1>
+
+        <div class="row margin-top home-btn-container">
+          <div class="col-md-6 btn-wraper">
+            <a [routerLink]="['quiz']" class="btn-main btn-home">Start a quiz</a>
+          </div>
+
+          <div class="col-md-6 btn-wraper">
+            <a [routerLink]="['statistics']" class="btn-main btn-home">Statistics</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>

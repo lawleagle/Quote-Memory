@@ -5,6 +5,7 @@
 
 .navbar a {
   color: #ECF0F1 !important;
+  font-size: 17px;
 }
 
 .navbar a:hover,
@@ -14,6 +15,10 @@
 
 .navbar a:link {
   color: #ECF0F1;
+}
+
+.navbar-collapse {
+  border: none;
 }
 
 .log-in {
