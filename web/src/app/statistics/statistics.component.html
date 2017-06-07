@@ -20,7 +20,7 @@
         </div>
 
         <div class="col-md-10">
-          <div class="bar text-right" [style.width.%]="getWidth(quote.level)">
+          <div class="bar text-right" [style.width.%]="quote.level * 10 > 0 ? quote.level * 10 : 10">
             <p class="level">{{quote.level}}</p>
           </div>
         </div>

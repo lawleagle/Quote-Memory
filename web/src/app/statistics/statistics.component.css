@@ -18,6 +18,9 @@
 }
 
 /* Graph */
+.statistics-graph {
+  margin-bottom: 100px;
+}
 .graph-item {
   margin: 20px 0;
   font-size: 18px;
