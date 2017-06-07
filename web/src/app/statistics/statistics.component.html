@@ -12,15 +12,17 @@
 </div>
 
 <div class="container page content">
-  <div class="statistics-graph margin-top" *ngFor="let quote of quotes">
-    <div class="row graph-item">
-      <div class="col-md-2">
-        <p class="graph-text"><strong>Identifier</strong>: {{quote.identifier}}</p>
-      </div>
+  <div class="statistics-graph margin-top">
+    <div *ngFor="let quote of quotes">
+      <div class="row graph-item">
+        <div class="col-md-2">
+          <p class="graph-text"><strong>Identifier</strong>: {{quote.identifier}}</p>
+        </div>
 
-      <div class="col-md-10">
-        <div class="bar text-right" [style.width.%]="getWidth(quote.level)">
-          <p class="level">{{quote.level}}</p>
+        <div class="col-md-10">
+          <div class="bar text-right" [style.width.%]="getWidth(quote.level)">
+            <p class="level">{{quote.level}}</p>
+          </div>
         </div>
       </div>
     </div>

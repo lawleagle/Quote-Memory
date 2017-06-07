@@ -17,11 +17,12 @@ export class StatisticsComponent implements OnInit {
     });
   }
 
-  getWidth(level) {
+  getWidth(level : number) : number {
+
     if (level == 0) {
       return 10;
     } else {
-      return level * 10;      
+      return level * 10;
     }
   }
 
