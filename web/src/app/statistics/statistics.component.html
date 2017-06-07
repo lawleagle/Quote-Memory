@@ -1,10 +1,28 @@
-<br><br><br>
 <div>
-  statistics works!
+  <div class="jumbotron text-center">
+
+    <div class="jumbotron-content">
+      <div class="container">
+
+        <h1>Statistics</h1>
+
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>NOTE: Here will be implemented some graph.</div>
-<div *ngFor="let quote of quotes">
-  Identifier: {{quote.identifier}}<br>
-  Level: {{quote.level}}<br><br>
+<div class="container page content">
+  <div class="statistics-graph margin-top" *ngFor="let quote of quotes">
+    <div class="row graph-item">
+      <div class="col-md-2">
+        <p class="graph-text"><strong>Identifier</strong>: {{quote.identifier}}</p>
+      </div>
+
+      <div class="col-md-10">
+        <div class="bar text-right" [style.width.%]="getWidth(quote.level)">
+          <p class="level">{{quote.level}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

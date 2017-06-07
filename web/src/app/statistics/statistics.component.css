@@ -1,0 +1,42 @@
+/* -------------------------------- Statistics Jumbotron -------------------------------- */
+.page {
+  min-width: 0vh;
+}
+
+.jumbotron {
+  background-color: #00101f;
+
+  min-height: 35vh;
+  margin: 0;
+
+  color: white;
+}
+
+.jumbotron-content {
+  padding-top: calc(17vh - 40px);
+  padding-bottom: 100px;
+}
+
+/* Graph */
+.graph-item {
+  margin: 20px 0;
+  font-size: 18px;
+
+}
+
+.graph-text {
+  margin: 5px 0;
+}
+
+.bar {
+  max-width: 100%;
+  padding: 5px;
+
+  background-color: #005882;
+  color: white;
+  border-radius: 3px;
+}
+
+.level {
+  margin: 0;
+}
